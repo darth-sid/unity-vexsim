@@ -5,6 +5,7 @@ using UnityEngine;
 public class ScrambleRings : MonoBehaviour
 {
     public Vector3 init_location;
+    public float buffer;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,7 @@ public class ScrambleRings : MonoBehaviour
 
     public void randomize()
     {
-        transform.position = new Vector3(Random.Range(-45.0f,45.0f),transform.position.y,Random.Range(-69.0f,69.0f));
+        transform.position = new Vector3(Random.Range(-48.0f+buffer,48.0f-buffer),transform.position.y,Random.Range(-72.0f+buffer,72.0f-buffer));
     }
 
     public void reset()
