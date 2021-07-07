@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movebot : MonoBehaviour
+public class movePerspective : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,18 +13,22 @@ public class movebot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W)){
-            transform.position = new Vector3(transform.position.x+1,transform.position.y,transform.position.z);
-            }
-        if(Input.GetKey(KeyCode.S)){
-            transform.position = new Vector3(transform.position.x-1,transform.position.y,transform.position.z);
-            }
-        if(Input.GetKey(KeyCode.D)){
+       if(Input.GetKey(KeyCode.RightArrow)){
             transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z-1);
             }
-        if(Input.GetKey(KeyCode.A)){
+        if(Input.GetKey(KeyCode.LeftArrow)){
             transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z+1);
             }
 
+
+        if(Input.GetKey(KeyCode.UpArrow)){
+            transform.rotation = new Vector3(transform.rotation.x,transform.rotation.y,transform.rotation.z-1);
+            }
+        if(Input.GetKey(KeyCode.DownArrow)){
+            transform.rotation = new Vector3(transform.rotation.x,transform.rotation.y,transform.rotation.z+1);
+            }
+
+
+ 
     }
 }
