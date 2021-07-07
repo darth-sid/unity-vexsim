@@ -21,4 +21,9 @@ public class ScrambleRings : MonoBehaviour
     {
         transform.position = new Vector3(Random.Range(-45.0f,45.0f),transform.position.y,Random.Range(-69.0f,69.0f));
     }
+
+    public void reset()
+    {
+        transform.position = init_location;
+    }
 }

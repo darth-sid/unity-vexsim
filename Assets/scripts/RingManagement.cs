@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class e : MonoBehaviour
+public class RingManagement : MonoBehaviour
 {
     public GameObject[] field_rings;
     // Start is called before the first frame update
@@ -25,5 +25,15 @@ public class e : MonoBehaviour
             ring.GetComponent<ScrambleRings>().randomize();
             }
     }
+
+    public void reset()
+    {
+        field_rings = GameObject.FindGameObjectsWithTag("FieldRing");
+        foreach (GameObject ring in field_rings)
+        {
+            ring.GetComponent<ScrambleRings>().reset();
+            }
+
+        }
 
     }
