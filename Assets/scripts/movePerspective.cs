@@ -22,10 +22,10 @@ public class movePerspective : MonoBehaviour
 
 
         if(Input.GetKey(KeyCode.UpArrow)){
-            transform.rotation = new Vector3(transform.rotation.x,transform.rotation.y,transform.rotation.z-1);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x,transform.eulerAngles.y-1,transform.eulerAngles.z);
             }
         if(Input.GetKey(KeyCode.DownArrow)){
-            transform.rotation = new Vector3(transform.rotation.x,transform.rotation.y,transform.rotation.z+1);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x,transform.eulerAngles.y+1,transform.eulerAngles.z);
             }
 
 
