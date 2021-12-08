@@ -5,27 +5,32 @@ using UnityEngine;
 public class movebot : MonoBehaviour
 {
     public float speed;
+    private Vector3 dir;
+    private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        dir = new Vector3(0,0,0);
         if(Input.GetKey(KeyCode.W)){
-            transform.position = new Vector3(transform.position.x+speed,transform.position.y,transform.position.z);
+            dir = new Vector3(1,0,0);
             }
         if(Input.GetKey(KeyCode.S)){
-            transform.position = new Vector3(transform.position.x-speed,transform.position.y,transform.position.z);
-            }
+            dir = new Vector3(-1,0,0);    
+        }
         if(Input.GetKey(KeyCode.D)){
-            transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z-speed);
+            dir = new Vector3(0,0,-1);
             }
         if(Input.GetKey(KeyCode.A)){
-            transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z+speed);
+            dir = new Vector3(1,0,1);
             }
+        rb.AddForce(dir, ForceMode.VelocityChange);//dir.normalized*speed;
+
 
     }
 }
