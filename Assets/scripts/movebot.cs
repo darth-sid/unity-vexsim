@@ -16,21 +16,19 @@ public class movebot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dir = new Vector3(0,0,0);
+        //dir = new Vector3(0,0,0);
         if(Input.GetKey(KeyCode.W)){
-            dir = new Vector3(1,0,0);
+            rb.velocity = transform.forward * speed;//new Vector3(1,0,0);
             }
-        if(Input.GetKey(KeyCode.S)){
-            dir = new Vector3(-1,0,0);    
+        else if(Input.GetKey(KeyCode.S)){
+            rb.velocity = -transform.forward * speed;//new Vector3(-1,0,0);    
         }
         if(Input.GetKey(KeyCode.D)){
-            dir = new Vector3(0,0,-1);
+            transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * speed, Space.World);
+        }
+        else if(Input.GetKey(KeyCode.A)){
+            transform.Rotate(new Vector3(0, -1, 0) * Time.deltaTime * speed, Space.World);
             }
-        if(Input.GetKey(KeyCode.A)){
-            dir = new Vector3(1,0,1);
-            }
-        rb.AddForce(dir, ForceMode.VelocityChange);//dir.normalized*speed;
-
-
+        //rb.AddForce(dir, ForceMode.VelocityChange);//dir.normalized*speed;
     }
 }
